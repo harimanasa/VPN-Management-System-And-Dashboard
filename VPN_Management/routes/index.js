@@ -37,6 +37,7 @@ router.get('/delete', function(req, res, next) {
     res.render('index', { title: 'VPN Management System' });
   }
 });
+
 router.get('/manage', function(req, res, next) {
   if (req.session && req.session.user) {
     res.render('manage_info', { name: req.session.user.name,
@@ -56,7 +57,6 @@ router.get('/login', function(req, res, next) {
 
 /* GET Sign up */
 router.get('/signup', function(req, res, next) {
-
   res.render('signup', { title: 'VPN Management System' });
 });
 
@@ -72,7 +72,19 @@ router.get('/home', function(req, res, next) {
 } else {
   res.render('index', { title: 'VPN Management System' });
 }
-
+});
+// Admin Home
+router.get('/admin_home', function(req, res, next) {
+  if (req.session && req.session.user) {
+  res.render('admin_home', { name: req.session.user.name,
+  email:req.session.user.email,
+  image:req.session.user.image,
+  ssn:req.session.user.ssn,
+  id:req.session.user.id,
+  });
+} else {
+  res.render('index', { title: 'VPN Management System' });
+}
 });
 
 router.get('/plans', function(req, res, next) {

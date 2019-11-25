@@ -29,20 +29,15 @@ router.post('/add-device', function (req, res, next) {
 
     con.query(sql2, device, function (err, result) {
       if (err) throw err;
-
       else {
         console.log("New DEVICE_OWNER Data inserted successfully");
         con2.connect(function (err) {
           if (err) throw err;
           console.log("Connected to DB!");
-
           con2.query(sql, owner, function (err, result) {
             if (err) throw err;
-
             else {
               console.log("New CUSTOMER_DEVICE Data inserted successfully");
-
-
               res.redirect("home");
             }
           })
