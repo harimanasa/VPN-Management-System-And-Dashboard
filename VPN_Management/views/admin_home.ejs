@@ -218,14 +218,13 @@
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
-          List of All Servers
+          List of all devices under this admin
                 <div>
                   <table id="devices-table" class="cell-border" style="width:100%">
                     <thead>
                         <tr>
-                            <th>Server ID</th>
-                            <th>Status</th>
-                            <th>Locations</th>
+                            <th>Device ID</th>
+                            <th>Device Name</th>
                         </tr>
                     </thead>
                     </table>
@@ -301,12 +300,12 @@
     $(document).ready(function() {
     $('#devices-table').dataTable( {
   "ajax": {
-    "url": "list-devices",
+    "url": "list-admin",
     "type": "GET"
   },
   "columns": [
+            { "data": "device_ID" },
             { "data": "device_name" },
-            { "data": "private_IP_Address" },
         ]
     });
     });

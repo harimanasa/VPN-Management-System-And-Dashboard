@@ -70,6 +70,28 @@ router.get('/list-devices', function (req, res, next) {
 });
 
 
+router.get('/list-admin', function (req, res, next) {
+  var con = mysql.createConnection(database);
+  con.connect(function (err) {
+    if (err) throw err;
+    console.log(req.query);
+    console.log(database);
+    var sql = "select A.device_ID, switch_ID from CONNECT A join DEVICE_OWNER B on A.device_ID = B.device_ID join USER C on C.ssn = B.ssn where C.ssn=" + req.session.user.ssn.toString();
+      var info = {
+      "data": []
+    };
+    console.log(sql)
+    con.query(sql, function (err, result) {
+      console.log(result);
+      if (err) {throw err;}
+      else {
+        console.log(result);
+        info.data = result;
+        res.send(info);
+      }
+    });
+  });
+});
 
 
 module.exports = router;

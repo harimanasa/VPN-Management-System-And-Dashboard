@@ -215,7 +215,6 @@ router.get('/plans', function(req, res, next) {
       };
       con.query(sql, function (err, result) {
         if (err) {
-          
           throw err;
         }
         else {
