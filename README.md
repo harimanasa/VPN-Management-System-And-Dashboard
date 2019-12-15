@@ -1,4 +1,3 @@
-# cmpe138Project
 VPN Management System
 # Set Up application in your local
 * open terminal and run the following commands
