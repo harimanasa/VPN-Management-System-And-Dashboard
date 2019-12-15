@@ -1,8 +1,8 @@
 VPN Management System
 # Set Up application in your local
 * open terminal and run the following commands
-1. git clone https://github.com/Hashah1/cmpe138Project.git
-2. cd cmpe138Project/VPN_management
+1. git clone this project
+2. cd project
 3. git pull origin master
 
 # Database Connection
